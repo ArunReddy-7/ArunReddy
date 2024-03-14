@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    stages {
+        stage('stage_1') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo "branch exists"
+            }
+        }
+     }
+}
