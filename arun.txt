@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('stage_1') {
             when {
-                branch 'main'
+                expression {
+                    env.BRANCH_NAME == 'main'
+                }   
             }
             steps {
                 echo "branch exists"
