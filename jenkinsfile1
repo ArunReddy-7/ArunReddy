@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('checkout') {
+            steps {
+                git url: 'https://github.com/HouariZegai/Calculator.git', branch: 'master'
+            }
+        }
+        stage('scm') {
+            steps {
+                sh 'install'
+                echo "build succesful"
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
